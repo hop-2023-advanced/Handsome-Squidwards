@@ -4,3 +4,6 @@ Goals: Our application's purpose is to help people communicate with each other t
 
 
 <img width="341" alt="Screen Shot 2023-08-18 at 14 49 39" src="https://github.com/hop-2023-advanced/Handsome-Squidwards/assets/110883062/3a1fd526-bbe3-46f6-a006-2d5aa32d5daf">
+
+
+![image](https://github.com/hop-2023-advanced/Handsome-Squidwards/assets/110883062/87f63716-d966-4760-8409-4ab867549a53)
