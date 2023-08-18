@@ -7,3 +7,5 @@ Goals: Our application's purpose is to help people communicate with each other t
 
 
 ![image](https://github.com/hop-2023-advanced/Handsome-Squidwards/assets/110883062/87f63716-d966-4760-8409-4ab867549a53)
+
+![image](https://github.com/hop-2023-advanced/Handsome-Squidwards/assets/110883062/6d824920-5387-45a4-a486-a39df5231b78)
