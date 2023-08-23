@@ -1,10 +1,12 @@
 import { Text, View, Image, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function Profile() {
   return (
     <>
-      <View>
+      <View style={{ backgroundColor: "#F8E3B6" }}>
         <View>
           <View style={{ flexDirection: "row", padding: 10 }}>
             <TouchableOpacity>
@@ -51,7 +53,7 @@ export default function Profile() {
             <View>
               <Text
                 style={{
-                  fontFamily: "Times New Roman",
+                  fontFamily: "Arial-BoldMT",
                   fontWeight: "bold",
                   fontSize: 25,
                   color: "#2E2E2E",
@@ -80,9 +82,71 @@ export default function Profile() {
             elevation: 14,
             width: "100%",
             height: "100%",
-            backgroundColor: "white",
+            backgroundColor: "#FBF2DF",
           }}
-        ></View>
+        >
+          <View>
+            <TouchableOpacity style={{ flexDirection: "row" }}>
+              <View style={{ position: "absolute", top: 50, left: 30 }}>
+                <Ionicons name="ios-settings-outline" size={24} color="gray" />
+              </View>
+              <View
+                style={{
+                  position: "absolute",
+                  top: 50,
+                  left: 100,
+                }}
+              >
+                <Text
+                  style={{
+                    color: "gray",
+                    fontSize: 20,
+                    fontWeight: 400,
+                  }}
+                >
+                  Settings
+                </Text>
+              </View>
+              <View style={{ position: "absolute", top: 50, right: 30 }}>
+                <AntDesign name="right" size={24} color="gray" />
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity style={{ flexDirection: "row" }}>
+              <View style={{ position: "absolute", top: 120, left: 30 }}>
+                <MaterialCommunityIcons
+                  name="chat-question-outline"
+                  size={24}
+                  color="gray"
+                />
+              </View>
+              <View
+                style={{
+                  position: "absolute",
+                  top: 120,
+                  left: 100,
+                }}
+              >
+                <Text
+                  style={{
+                    color: "gray",
+                    fontSize: 20,
+                    fontWeight: 400,
+                  }}
+                >
+                  Support
+                </Text>
+              </View>
+              <View style={{ position: "absolute", top: 120, right: 30 }}>
+                <AntDesign name="right" size={24} color="gray" />
+              </View>
+            </TouchableOpacity>
+            <View style={{ position: "absolute", top: 250, left: 150 }}>
+              <Text style={{ color: "#880808", fontSize: 20, fontWeight: 500 }}>
+                Sign out
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
     </>
   );
