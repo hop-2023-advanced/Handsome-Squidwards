@@ -1,7 +1,7 @@
 import { Text, View, Image, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 export default function Profile() {
   return (
@@ -113,11 +113,7 @@ export default function Profile() {
             </TouchableOpacity>
             <TouchableOpacity style={{ flexDirection: "row" }}>
               <View style={{ position: "absolute", top: 120, left: 30 }}>
-                <MaterialCommunityIcons
-                  name="chat-question-outline"
-                  size={26}
-                  color="gray"
-                />
+                <Feather name="unlock" size={26} color="gray" />
               </View>
               <View
                 style={{
@@ -133,7 +129,7 @@ export default function Profile() {
                     fontWeight: 400,
                   }}
                 >
-                  Support
+                  Password
                 </Text>
               </View>
               <View style={{ position: "absolute", top: 120, right: 30 }}>
@@ -165,11 +161,27 @@ export default function Profile() {
                 <AntDesign name="right" size={24} color="gray" />
               </View>
             </TouchableOpacity>
-            <View style={{ position: "absolute", bottom: -400, left: 150 }}>
-              <Text style={{ color: "#880808", fontSize: 20, fontWeight: 500 }}>
-                Sign out
-              </Text>
-            </View>
+            <TouchableOpacity style={{ flexDirection: "row" }}>
+              <View style={{ position: "absolute", top: 260, left: 30 }}>
+                <AntDesign name="closecircleo" size={24} color="#880808" />
+              </View>
+              <View
+                style={{
+                  position: "absolute",
+                  top: 260,
+                  left: 100,
+                }}
+              >
+                <Text
+                  style={{ color: "#880808", fontSize: 20, fontWeight: 500 }}
+                >
+                  Sign out
+                </Text>
+              </View>
+              <View style={{ position: "absolute", top: 260, right: 30 }}>
+                <AntDesign name="right" size={24} color="#880808" />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
