@@ -85,7 +85,7 @@ export default function Profile() {
             backgroundColor: "#FBF2DF",
           }}
         >
-          <View>
+          <View style={{ paddingTop: 20 }}>
             <TouchableOpacity style={{ flexDirection: "row" }}>
               <View style={{ position: "absolute", top: 50, left: 30 }}>
                 <Ionicons name="ios-settings-outline" size={24} color="gray" />
@@ -115,7 +115,7 @@ export default function Profile() {
               <View style={{ position: "absolute", top: 120, left: 30 }}>
                 <MaterialCommunityIcons
                   name="chat-question-outline"
-                  size={24}
+                  size={26}
                   color="gray"
                 />
               </View>
@@ -140,7 +140,32 @@ export default function Profile() {
                 <AntDesign name="right" size={24} color="gray" />
               </View>
             </TouchableOpacity>
-            <View style={{ position: "absolute", top: 250, left: 150 }}>
+            <TouchableOpacity style={{ flexDirection: "row" }}>
+              <View style={{ position: "absolute", top: 190, left: 30 }}>
+                <Ionicons name="notifications-outline" size={26} color="gray" />
+              </View>
+              <View
+                style={{
+                  position: "absolute",
+                  top: 190,
+                  left: 100,
+                }}
+              >
+                <Text
+                  style={{
+                    color: "gray",
+                    fontSize: 20,
+                    fontWeight: 400,
+                  }}
+                >
+                  Notifications
+                </Text>
+              </View>
+              <View style={{ position: "absolute", top: 190, right: 30 }}>
+                <AntDesign name="right" size={24} color="gray" />
+              </View>
+            </TouchableOpacity>
+            <View style={{ position: "absolute", bottom: -400, left: 150 }}>
               <Text style={{ color: "#880808", fontSize: 20, fontWeight: 500 }}>
                 Sign out
               </Text>
