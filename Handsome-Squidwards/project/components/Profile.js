@@ -3,28 +3,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
-export default function Profile() {
+export default function Profile({ navigation }) {
   return (
     <>
       <View style={{ backgroundColor: "#F8E3B6" }}>
         <View>
-          <View style={{ flexDirection: "row", padding: 10 }}>
-            <TouchableOpacity>
-              <Ionicons name="chevron-back" size={30} color="black" />
-            </TouchableOpacity>
-            <View
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                flex: 1,
-                paddingRight: 30,
-              }}
-            >
-              <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-                My profile
-              </Text>
-            </View>
-          </View>
           <View style={{ alignItems: "center", padding: 40, gap: 10 }}>
             <View
               style={{
@@ -86,9 +69,14 @@ export default function Profile() {
           }}
         >
           <View style={{ paddingTop: 20 }}>
-            <TouchableOpacity style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              style={{ flexDirection: "row" }}
+              onPress={function () {
+                navigation.navigate("EditProfile");
+              }}
+            >
               <View style={{ position: "absolute", top: 50, left: 30 }}>
-                <Ionicons name="ios-settings-outline" size={24} color="gray" />
+                <Feather name="edit" size={24} color="gray" />
               </View>
               <View
                 style={{
@@ -104,7 +92,7 @@ export default function Profile() {
                     fontWeight: 400,
                   }}
                 >
-                  Settings
+                  Edit Profile
                 </Text>
               </View>
               <View style={{ position: "absolute", top: 50, right: 30 }}>
