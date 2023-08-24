@@ -9,6 +9,8 @@ Goals: Our application's purpose is to help people communicate with each other t
 ![image](https://github.com/hop-2023-advanced/Handsome-Squidwards/assets/110883062/87f63716-d966-4760-8409-4ab867549a53)
 
 ![image](https://github.com/hop-2023-advanced/Handsome-Squidwards/assets/110883062/1848a94a-52e6-4d46-988e-17cf767de42e)
+![Uploading image.png…]()
+
 
 
 https://www.figma.com/file/B5nxMLKaSrCj2pisaqqWdc/Untitled?type=whiteboard&node-id=0-1&t=3wqxMHcGmSnrzqGj-0
