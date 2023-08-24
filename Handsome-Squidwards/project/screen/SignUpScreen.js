@@ -60,19 +60,6 @@ export default function SignUpScreen({ pressed }) {
         backgroundColor: "#C38154",
       }}
     >
-      <Text
-        style={{
-          fontSize: 35,
-          color: "white",
-          fontStyle: "italic",
-          fontWeight: "900",
-          position: "relative",
-          bottom: 130,
-          right: 80,
-        }}
-      >
-        Hello there
-      </Text>
       {!pendingVerification && (
         <View
           style={{
