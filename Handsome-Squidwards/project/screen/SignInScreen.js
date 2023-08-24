@@ -35,19 +35,6 @@ export default function SignInScreen({ pressed }) {
         backgroundColor: "#C38154",
       }}
     >
-      <Text
-        style={{
-          fontSize: 35,
-          color: "white",
-          fontStyle: "italic",
-          fontWeight: "900",
-          position : 'relative',
-          bottom : 130,
-          right: 50
-        }}
-      >
-        Welcome back
-      </Text>
       <View
         style={{
           justifyContent: "space-around",
