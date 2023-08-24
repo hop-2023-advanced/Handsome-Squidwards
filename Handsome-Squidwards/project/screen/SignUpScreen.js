@@ -80,29 +80,35 @@ export default function SignUpScreen({ pressed }) {
           </Text>
 
           <TextInput
-            mode="outlined"
             value={emailAddress}
-            label="Email"
+            placeholder="Email"
             onChangeText={(email) => setEmailAddress(email)}
             style={{
               width: 250,
               height: 40,
-              backgroundColor: "white",
-              fontSize: 13,
+              backgroundColor: "#F9E0BB",
+              fontSize: 14,
+              borderTopEndRadius : 20,
+              borderBottomLeftRadius: 20,
+              borderBottomRightRadius: 20,
+              borderTopStartRadius: 20
             }}
           />
 
           <TextInput
-            mode="outlined"
             value={password}
-            label="Password"
+            placeholder="Password"
             secureTextEntry={secureTextEntry}
             onChangeText={(password) => setPassword(password)}
             style={{
               width: 250,
               height: 40,
-              backgroundColor: "white",
-              fontSize: 13,
+              backgroundColor: "#F9E0BB",
+              fontSize: 14,
+              borderTopEndRadius : 20,
+              borderBottomLeftRadius: 20,
+              borderBottomRightRadius: 20,
+              borderTopStartRadius: 20
             }}
             right={
               <TextInput.Icon
@@ -139,7 +145,7 @@ export default function SignUpScreen({ pressed }) {
                   color: "white",
                 }}
               >
-                Log In
+                Sign In
               </Text>
             </TouchableOpacity>
           </View>

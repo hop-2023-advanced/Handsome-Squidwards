@@ -14,9 +14,9 @@ export default function HomeScreen() {
           onPress={() => {
             signOut();
           }}
-          style={{ width: 150 }}
+          style={{ width: 150, backgroundColor: "#F9E0BB", color:'blacks'}}
         >
-          sign out
+         sing out
         </Button>
       ) : (
         ""
