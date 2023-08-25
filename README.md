@@ -14,3 +14,4 @@ Goals: Our application's purpose is to help people communicate with each other t
 
 
 https://www.figma.com/file/B5nxMLKaSrCj2pisaqqWdc/Untitled?type=whiteboard&node-id=0%3A1&t=m1PZPVuP7fRWffOG-1
+
