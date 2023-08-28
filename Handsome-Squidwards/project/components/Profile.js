@@ -6,7 +6,7 @@ import { Feather } from "@expo/vector-icons";
 export default function Profile({ navigation }) {
   return (
     <>
-      <View style={{ backgroundColor: "#F8E3B6" }}>
+      <View style={{ backgroundColor: "#F5EBE0" }}>
         <View>
           <View style={{ alignItems: "center", padding: 40, gap: 10 }}>
             <View
@@ -65,7 +65,7 @@ export default function Profile({ navigation }) {
             elevation: 14,
             width: "100%",
             height: "100%",
-            backgroundColor: "#FBF2DF",
+            backgroundColor: "#D5BDAF",
           }}
         >
           <View style={{ paddingTop: 20 }}>
@@ -76,7 +76,7 @@ export default function Profile({ navigation }) {
               }}
             >
               <View style={{ position: "absolute", top: 50, left: 30 }}>
-                <Feather name="edit" size={24} color="gray" />
+                <Feather name="edit" size={24} color="white" />
               </View>
               <View
                 style={{
@@ -87,7 +87,7 @@ export default function Profile({ navigation }) {
               >
                 <Text
                   style={{
-                    color: "gray",
+                    color: "white",
                     fontSize: 20,
                     fontWeight: 400,
                   }}
@@ -96,12 +96,17 @@ export default function Profile({ navigation }) {
                 </Text>
               </View>
               <View style={{ position: "absolute", top: 50, right: 30 }}>
-                <AntDesign name="right" size={24} color="gray" />
+                <AntDesign name="right" size={24} color="white" />
               </View>
             </TouchableOpacity>
-            <TouchableOpacity style={{ flexDirection: "row" }}>
+            <TouchableOpacity
+              style={{ flexDirection: "row" }}
+              onPress={function () {
+                navigation.navigate("Password");
+              }}
+            >
               <View style={{ position: "absolute", top: 120, left: 30 }}>
-                <Feather name="unlock" size={26} color="gray" />
+                <Feather name="unlock" size={26} color="white" />
               </View>
               <View
                 style={{
@@ -112,7 +117,7 @@ export default function Profile({ navigation }) {
               >
                 <Text
                   style={{
-                    color: "gray",
+                    color: "white",
                     fontSize: 20,
                     fontWeight: 400,
                   }}
@@ -121,12 +126,16 @@ export default function Profile({ navigation }) {
                 </Text>
               </View>
               <View style={{ position: "absolute", top: 120, right: 30 }}>
-                <AntDesign name="right" size={24} color="gray" />
+                <AntDesign name="right" size={24} color="white" />
               </View>
             </TouchableOpacity>
             <TouchableOpacity style={{ flexDirection: "row" }}>
               <View style={{ position: "absolute", top: 190, left: 30 }}>
-                <Ionicons name="notifications-outline" size={26} color="gray" />
+                <Ionicons
+                  name="notifications-outline"
+                  size={26}
+                  color="white"
+                />
               </View>
               <View
                 style={{
@@ -137,7 +146,7 @@ export default function Profile({ navigation }) {
               >
                 <Text
                   style={{
-                    color: "gray",
+                    color: "white",
                     fontSize: 20,
                     fontWeight: 400,
                   }}
@@ -146,7 +155,7 @@ export default function Profile({ navigation }) {
                 </Text>
               </View>
               <View style={{ position: "absolute", top: 190, right: 30 }}>
-                <AntDesign name="right" size={24} color="gray" />
+                <AntDesign name="right" size={24} color="white" />
               </View>
             </TouchableOpacity>
             <TouchableOpacity style={{ flexDirection: "row" }}>

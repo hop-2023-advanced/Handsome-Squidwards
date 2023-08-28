@@ -8,7 +8,7 @@ export default function EditProfile() {
     <>
       <View
         style={{
-          backgroundColor: "#F8E3B6",
+          backgroundColor: "#F5EBE0",
           height: "100%",
           alignItems: "center",
           justifyContent: "center",
@@ -57,7 +57,7 @@ export default function EditProfile() {
               ></Image>
             </View>
             <TouchableOpacity>
-              <Text style={{ fontWeight: "bold", color: "#A27146" }}>
+              <Text style={{ fontWeight: "bold", color: "gray" }}>
                 Change Your Profile Picture
               </Text>
             </TouchableOpacity>
@@ -122,8 +122,8 @@ export default function EditProfile() {
             <Button
               mode="elevated"
               buttonColor="white"
-              textColor="#A27146"
-              style={{ width: 200, marginTop: 20 }}
+              textColor="gray"
+              style={{ width: 200, marginTop: 20, backgroundColor: "#E3D5CA" }}
             >
               Done
             </Button>
