@@ -1,0 +1,23 @@
+GET http://localhost:3000/api/posts
+
+###
+
+POST http://localhost:3000/api/posts
+content-type: application/json
+
+{
+    "text": "test"
+}
+
+
+###
+DELETE http://localhost:3000/api/posts/64eed7187a9a1e76fdf746ec
+
+###
+
+PUT http://localhost:3000/api/posts/64eed7187a9a1e76fdf746ec
+content-type: application/json
+
+{
+    "text": "test11"
+}
