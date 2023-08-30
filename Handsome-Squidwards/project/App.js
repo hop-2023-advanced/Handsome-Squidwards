@@ -16,12 +16,11 @@ export default function App() {
           <Homescreen />
         </SignedIn>
         <SignedOut>
-          {/* {signed ? (
+          {signed ? (
             <SignInScreen pressed={() => setSigned(false)} />
           ) : (
             <SignUpScreen pressed={() => setSigned(true)} />
-          )} */}
-          <Homescreen />
+          )}
         </SignedOut>
       </ClerkProvider>
     </PaperProvider>
