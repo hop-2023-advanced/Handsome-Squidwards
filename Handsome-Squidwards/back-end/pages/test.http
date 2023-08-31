@@ -1,14 +1,18 @@
+
+//posts
+
 GET http://localhost:3000/api/posts
 
+###
+GET http://localhost:3000/api/posts?userID=64f03b19442d170e283f8875
 ###
 
 POST http://localhost:3000/api/posts
 content-type: application/json
 
 {
-    "text": "test",
-    "username": "username",
-    "image": "https://i.pinimg.com/564x/0b/40/ff/0b40ffb7cfdbba25578341e3df689d30.jpg"
+    "text": "testttt",
+    "username": "username"
 }
 
 
@@ -25,7 +29,11 @@ content-type: application/json
 }
 
 ###
+
+// comments 
+
 GET http://localhost:3000/api/comments?postID=64f02ac0442d170e2838e41f
+
 
 ### 
 
@@ -45,4 +53,33 @@ content-type: application/json
 {
     "text": "test12"
   
+}
+
+
+//users
+###
+GET http://localhost:3000/api/users
+
+###
+GET http://localhost:3000/api/users?id=64f039c5eb5ab5f6060744bd
+###
+
+POST http://localhost:3000/api/users
+content-type: application/json
+
+{
+    "username": "erdemee"
+}
+
+
+###
+DELETE http://localhost:3000/api/users/64eed7187a9a1e76fdf746ec
+
+###
+
+PUT http://localhost:3000/api/users/64eed7187a9a1e76fdf746ec
+content-type: application/json
+
+{
+    "username": "test11"
 }

@@ -21,6 +21,12 @@ export default async function handler(
 
       res.status(200).json(create);
       break;
+    // case "GET":
+    //   const getOne = await db("comments", "findOne", {
+    //     filter: { _id: { $oid: id } },
+    //   });
+    //   res.status(200).json(getOne);
+    //   break;
     case "GET":
       const get = await db("comments", "find", {});
 
