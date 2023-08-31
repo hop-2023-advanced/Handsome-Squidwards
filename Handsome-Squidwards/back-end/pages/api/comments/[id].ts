@@ -10,7 +10,7 @@ export default async function handler(
     case "PUT":
       const { text } = req.body;
 
-      const result = await db("posts", "updateOne", {
+      const result = await db("comments", "updateOne", {
         filter: { _id: { $oid: id } },
         update: {
           $set: {
@@ -25,7 +25,7 @@ export default async function handler(
     case "DELETE":
       console.log(req.query);
 
-      const deletee = await db("posts", "deleteOne", {
+      const deletee = await db("comments", "deleteOne", {
         filter: { _id: { $oid: id } },
       });
 

@@ -7,15 +7,14 @@ export default async function handler(
 ) {
   switch (req.method) {
     case "POST":
-      const { text, image, username } = req.body;
-
+      const { text, username, postId } = req.body;
       console.log(req.body);
 
-      const create = await db("posts", "insertOne", {
+      const create = await db("comments", "insertOne", {
         document: {
           username: username,
           text: text,
-          image: image,
+          postId,
           uploadTime: Date.now(),
         },
       });
@@ -23,7 +22,7 @@ export default async function handler(
       res.status(200).json(create);
       break;
     case "GET":
-      const get = await db("posts", "find", {});
+      const get = await db("comments", "find", {});
 
       res.status(200).json(get);
       break;

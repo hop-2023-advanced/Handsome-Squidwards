@@ -6,7 +6,9 @@ POST http://localhost:3000/api/posts
 content-type: application/json
 
 {
-    "text": "test"
+    "text": "test",
+    "username": "username",
+    "image": "https://i.pinimg.com/564x/0b/40/ff/0b40ffb7cfdbba25578341e3df689d30.jpg"
 }
 
 
@@ -20,4 +22,27 @@ content-type: application/json
 
 {
     "text": "test11"
+}
+
+###
+GET http://localhost:3000/api/comments?postID=64f02ac0442d170e2838e41f
+
+### 
+
+POST http://localhost:3000/api/comments
+content-type: application/json
+
+{
+    "text": "test",
+    "username": "username"
+}
+
+###
+
+PUT http://localhost:3000/api/comments/64f02ac0442d170e2838e41f
+content-type: application/json
+
+{
+    "text": "test12"
+  
 }
