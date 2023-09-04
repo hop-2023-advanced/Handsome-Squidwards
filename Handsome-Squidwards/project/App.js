@@ -56,7 +56,7 @@ export default function App() {
           style={{ backgroundColor: "black", padding: 20, borderRadius: 10 }}
           onPress={requestPermission}
         >
-          <Text style={{ color: "white" }}>Request SEX</Text>
+          <Text style={{ color: "white" }}>Request Permission</Text>
         </TouchableOpacity>
       </View>
     );
@@ -99,33 +99,39 @@ export default function App() {
   );
 }
 
-function ImageItem({ photo, index, onSelect, onRemove, selected }) {
-  const marginHorizontal = index % 3 === 1 ? imageGap : 0;
+function ImageItem({ photo, index, onSelect, onRemove, selected}) {
+  const marginHorizontal = index % 3 === 1 ? imageGap : 0
 
   return (
-    <TouchableOpacity onPress={() => (selected ? onRemove() : onSelect())}>
-      <View
+    <TouchableOpacity onPress={() => (selected ? onRemove() : onSelect)}>
+      <View 
+      style={{
+        width: imageWidth,
+        height: imageWidth,
+        marginBottom: imageGap,
+        marginHorizontal,
+        position: 'relative'
+      }}
+      >
+        <Image 
+        source={{ uri: photo.uri}}
         style={{
-          position: "relative",
+          backgroundColor: '#ccc',
           width: imageWidth,
           height: imageWidth,
-          marginBottom: imageGap,
-          marginHorizontal,
         }}
-      >
-        <Image
-          source={{ uri: photo.uri }}
-          style={{
-            backgroundColor: "#ccc",
-            width: imageWidth,
-            height: imageWidth,
-          }}
         />
+        {!!selected && (
+          <View style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(255,255,255,0.6)', justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{ backgroundColor: 'blue', width: 30, height: 30, borderRadius: 15, justifyContent: 'center', alignItems: 'center'}}>
+              <Text style={{ color: 'white'}}>{selected}</Text>
+            </View>
+          </View>
+        )}
       </View>
     </TouchableOpacity>
-  );
+  )
 }
-
 // function upload () {
 //   return ()
 // }
