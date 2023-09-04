@@ -7,33 +7,32 @@ export default async function handler(
 ) {
   switch (req.method) {
     case "GET":
-      const list = await db("posts", "find", {
-        filter: { userId: req.query.userId },
-      });
-      res.status(200).json(list);
+      const getAll = await db("users", "find", {});
+      res.status(200).json(getAll);
       break;
     case "POST":
-      const { text, image, username, userId } = req.body;
+      const { username, name, email, password, image } = req.body;
 
       console.log(req.body);
 
-      const create = await db("posts", "insertOne", {
+      const create = await db("users", "insertOne", {
         document: {
           username: username,
-          text: text,
+          name: name,
           image: image,
-          uploadTime: Date.now(),
-          userId,
+          email: email,
+          password: password,
         },
       });
 
       res.status(200).json(create);
       break;
-    // case "GET":
-    //   const get = await db("posts", "find", {});
 
-    //   res.status(200).json(get);
-    //   break;
+    case "GET":
+      const get = await db("users", "find", {});
+
+      res.status(200).json(get);
+      break;
     default:
       res.status(405).end();
       return;

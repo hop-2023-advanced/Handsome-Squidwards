@@ -1,18 +1,57 @@
+
+//users
+###
+GET http://localhost:3000/api/users
+
+###
+GET http://localhost:3000/api/users/64f039c5eb5ab5f6060744bd
+###
+
+POST http://localhost:3000/api/users
+content-type: application/json
+
+{
+    "username": "erdemee"
+}
+
+
+###
+DELETE http://localhost:3000/api/users/64eed7187a9a1e76fdf746ec
+
+###
+
+PUT http://localhost:3000/api/users/64eed7187a9a1e76fdf746ec
+content-type: application/json
+
+{
+    "username": "test11"
+}
+###
+
+
+//posts
+
 GET http://localhost:3000/api/posts
 
+###
+GET http://localhost:3000/api/posts?userId=64f03b19442d170e283f8875
 ###
 
 POST http://localhost:3000/api/posts
 content-type: application/json
 
 {
-    "text": "test"
+    "text": "a",
+    "userId": "64f03b19442d170e283f8875"
 }
 
 
 ###
 DELETE http://localhost:3000/api/posts/64eed7187a9a1e76fdf746ec
 
+
+/posts/12
+/posts?iddfgdflkgjdlkf=12
 ###
 
 PUT http://localhost:3000/api/posts/64eed7187a9a1e76fdf746ec
@@ -21,3 +60,35 @@ content-type: application/json
 {
     "text": "test11"
 }
+
+###
+
+// comments 
+
+
+
+
+###
+GET http://localhost:3000/api/comments?postId=64f0288c5c0844e7fa0b4a4a
+
+
+### 
+
+POST http://localhost:3000/api/comments
+content-type: application/json
+
+{
+    "text": "umm, sir?",
+    "postId": "64f0288c5c0844e7fa0b4a4a": 
+}
+
+###
+
+PUT http://localhost:3000/api/comments/64f02ac0442d170e2838e41f
+content-type: application/json
+
+{
+    "text": "test12"
+  
+}
+

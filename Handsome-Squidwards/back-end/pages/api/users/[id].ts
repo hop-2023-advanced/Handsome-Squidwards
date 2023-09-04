@@ -7,14 +7,24 @@ export default async function handler(
 ) {
   const { id } = req.query;
   switch (req.method) {
+    case "GET":
+      const getOne = await db("users", "findOne", {
+        filter: { _id: { $oid: id } },
+      });
+      res.status(200).json(getOne);
+      break;
     case "PUT":
-      const { text } = req.body;
+      const { username, name, email, password, image } = req.body;
 
-      const result = await db("posts", "updateOne", {
+      const result = await db("users", "updateOne", {
         filter: { _id: { $oid: id } },
         update: {
           $set: {
-            text: text,
+            username: username,
+            name: name,
+            image: image,
+            email: email,
+            password: password,
           },
         },
       });
@@ -25,7 +35,7 @@ export default async function handler(
     case "DELETE":
       console.log(req.query);
 
-      const deletee = await db("posts", "deleteOne", {
+      const deletee = await db("users", "deleteOne", {
         filter: { _id: { $oid: id } },
       });
 

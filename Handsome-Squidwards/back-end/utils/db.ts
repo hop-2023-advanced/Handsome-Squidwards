@@ -1,6 +1,10 @@
 import fetch from "node-fetch";
 
-export default async function handler(action: any, options: any) {
+export default async function handler(
+  collection: string,
+  action: any,
+  options: any
+) {
   const result = await fetch(
     `https://ap-southeast-1.aws.data.mongodb-api.com/app/data-mophc/endpoint/data/v1/action/${action}`,
     {
@@ -13,7 +17,7 @@ export default async function handler(action: any, options: any) {
       body: JSON.stringify({
         dataSource: "Cluster0",
         database: "InstagramDb",
-        collection: "Usernames",
+        collection: collection,
         ...options,
       }),
     }
