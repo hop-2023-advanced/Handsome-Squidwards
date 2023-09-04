@@ -6,6 +6,12 @@ export default async function handler(
   res: NextApiResponse
 ) {
   switch (req.method) {
+    case "GET":
+      const list = await db("posts", "find", {
+        filter: { userId: req.query.userId },
+      });
+      res.status(200).json(list);
+      break;
     case "POST":
       const { text, image, username, userId } = req.body;
 
@@ -24,16 +30,10 @@ export default async function handler(
       res.status(200).json(create);
       break;
     // case "GET":
-    //   const getOne = await db("posts", "findOne", {
-    //     filter: { _id: { $oid: id } },
-    //   });
-    //   res.status(200).json(getOne);
-    //   break;
-    case "GET":
-      const get = await db("posts", "find", {});
+    //   const get = await db("posts", "find", {});
 
-      res.status(200).json(get);
-      break;
+    //   res.status(200).json(get);
+    //   break;
     default:
       res.status(405).end();
       return;

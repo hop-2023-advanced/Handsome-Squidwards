@@ -5,8 +5,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { id } = req.query;
   switch (req.method) {
+    case "GET":
+      const getAll = await db("users", "find", {});
+      res.status(200).json(getAll);
+      break;
     case "POST":
       const { username, name, email, password, image } = req.body;
 
@@ -24,12 +27,7 @@ export default async function handler(
 
       res.status(200).json(create);
       break;
-    // case "GET":
-    //   const getOne = await db("users", "findOne", {
-    //     filter: { _id: { $oid: id } },
-    //   });
-    //   res.status(200).json(getOne);
-    //   break;
+
     case "GET":
       const get = await db("users", "find", {});
 

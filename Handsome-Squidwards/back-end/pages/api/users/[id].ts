@@ -7,6 +7,12 @@ export default async function handler(
 ) {
   const { id } = req.query;
   switch (req.method) {
+    case "GET":
+      const getOne = await db("users", "findOne", {
+        filter: { _id: { $oid: id } },
+      });
+      res.status(200).json(getOne);
+      break;
     case "PUT":
       const { username, name, email, password, image } = req.body;
 

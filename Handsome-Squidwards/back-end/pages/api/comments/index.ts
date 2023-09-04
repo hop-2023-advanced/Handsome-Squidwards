@@ -6,6 +6,12 @@ export default async function handler(
   res: NextApiResponse
 ) {
   switch (req.method) {
+    case "GET":
+      const list = await db("comments", "find", {
+        filter: { postId: req.query.postId },
+      });
+      res.status(200).json(list);
+      break;
     case "POST":
       const { text, username, postId } = req.body;
       console.log(req.body);
@@ -21,17 +27,7 @@ export default async function handler(
 
       res.status(200).json(create);
       break;
-    // case "GET":
-    //   const getOne = await db("comments", "findOne", {
-    //     filter: { _id: { $oid: id } },
-    //   });
-    //   res.status(200).json(getOne);
-    //   break;
-    case "GET":
-      const get = await db("comments", "find", {});
 
-      res.status(200).json(get);
-      break;
     default:
       res.status(405).end();
       return;
