@@ -16,6 +16,7 @@ import { Button } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {Post} from "../components/Post"
 
 export default function HomeScreen() {
   const { isLoaded, signOut } = useAuth();
@@ -129,38 +130,7 @@ export default function HomeScreen() {
           paddingRight: 20,
         }}
       >
-        <View
-          style={{
-            width: "100%",
-            height: 300,
-            backgroundColor: "#D6CCC2",
-            marginBottom: 10,
-          }}
-        ></View>
-        <View
-          style={{
-            width: "100%",
-            height: 300,
-            backgroundColor: "#D6CCC2",
-            marginBottom: 10,
-          }}
-        ></View>
-        <View
-          style={{
-            width: "100%",
-            height: 300,
-            backgroundColor: "#D6CCC2",
-            marginBottom: 10,
-          }}
-        ></View>
-        <View
-          style={{
-            width: "100%",
-            height: 300,
-            backgroundColor: "#D6CCC2",
-            marginBottom: 10,
-          }}
-        ></View>
+        <Post/>
       </ScrollView>
       <ImageBackground
         source={require("../assets/Footer3.png")}

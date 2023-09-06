@@ -42,7 +42,7 @@ export default function App() {
 
             <SignUpScreen pressed={() => setSigned(true)} />
 
-          )} */}ƒf
+          )} */}
 
           <Homescreen />
         </SignedOut>
