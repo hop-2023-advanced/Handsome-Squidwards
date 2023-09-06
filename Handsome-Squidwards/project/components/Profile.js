@@ -2,8 +2,24 @@ import { Text, View, Image, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
+import { useEffect, useState } from "react";
+
+const baseUrl = "http://localhost:3000/users/"
 
 export default function Profile({ navigation }) {
+  // const id = user.id
+  const [data, setData] = useState("");
+
+  // useEffect(() => {
+  //   axios.get(baseUrl + id)
+  //   .then((res) => {
+  //     setData(res.data);
+  //     console.log(res.data);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  // }, [])
   return (
     <>
       <View style={{ backgroundColor: "#F5EBE0" }}>
