@@ -21,21 +21,6 @@ import {Post} from "../components/Post"
 export default function HomeScreen() {
   const { isLoaded, signOut } = useAuth();
 
-  const TabButton = (props) => {
-    const { item, onPress, accessibilityState } = props;
-    const focused = accessibilityState.selected;
-    useEffect(() => {
-      if (focused) {
-        viewRef.current.animate({
-          0: { scale: 1 },
-          1: { scale: 1.5 },
-        });
-      } else {
-        viewRef.current.animate({ 0: { scale: 1.5 }, 1: { scale: 1 } });
-      }
-    }, [focused]);
-  }
-
   return (
     // <SafeAreaView
     //   style={{ flex: 1, justifyContent: "center", alignItems: "center" }}

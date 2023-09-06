@@ -77,7 +77,8 @@ export const Post = ({ navigation }) => {
               setModaVisible(!modaVisible);
             }}
           >
-            <View style={{ position: "absolute", bottom: 0 }}>
+
+            <View style={{ position: "absolute", bottom: 0, width: "100%" }}>
               <View
                 style={{
                   backgroundColor: "white",
@@ -93,14 +94,16 @@ export const Post = ({ navigation }) => {
                   },
                   shadowOpacity: 0.25,
                   shadowRadius: 4,
+                  bottom: 0,
                 }}
               >
                 <View
                   style={{
                     flexDirection: "row",
-                    marginLeft: 150,
-                    marginTop: 18,
+                    justifyContent: "center",
                     alignItems: "center",
+                    height:50,
+                    width:"100%",
                   }}
                 >
                   <Text
@@ -109,7 +112,7 @@ export const Post = ({ navigation }) => {
                     Options
                   </Text>
                   <TouchableOpacity
-                    style={{ borderRadius: 20, marginLeft: 120 }}
+                    style={{ position:"absolute", right:20, }}
                     onPress={() => Opt()}
                   >
                     <Text
@@ -180,11 +183,11 @@ export const Post = ({ navigation }) => {
             </View>
           </Modal>
         </View>
-        <View style={{borderTopWidth: 0.5, borderColor: '#282828', backgroundColor:"white"}}>
-            <Image
-            style={{height: "110%", width: "100%"}}
-            source={{uri: 'https://img.ifunny.co/images/ef18d47b9768055fd990577526c09a9b2d1e965400b5ae239c4e973ab30c5cb5_1.webp'}}
-            />
+        <View style={{ borderTopWidth: 0.5, borderColor: '#282828', backgroundColor: "white" }}>
+          <Image
+            style={{ height: "110%", width: "100%" }}
+            source={{ uri: 'https://img.ifunny.co/images/ef18d47b9768055fd990577526c09a9b2d1e965400b5ae239c4e973ab30c5cb5_1.webp' }}
+          />
         </View>
         <View
           style={{
