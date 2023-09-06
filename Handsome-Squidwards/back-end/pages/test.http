@@ -79,7 +79,11 @@ content-type: application/json
 
 {
     "text": "umm, sir?",
+<<<<<<< HEAD
+    "postId": "64f0288c5c0844e7fa0b4a4a"
+=======
     "postId": "64f0288c5c0844e7fa0b4a4a": 
+>>>>>>> main
 }
 
 ###
