@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "@clerk/clerk-expo";
 import {
   SafeAreaView,
@@ -16,10 +15,25 @@ import { Button } from "react-native-paper";
 import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {Post} from "../components/Post"
+import { Post } from "../components/Post"
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   const { isLoaded, signOut } = useAuth();
+
+  const TabButton = (props) => {
+    const { item, onPress, accessibilityState } = props;
+    const focused = accessibilityState.selected;
+    useEffect(() => {
+      if (focused) {
+        viewRef.current.animate({
+          0: { scale: 1 },
+          1: { scale: 1.5 },
+        });
+      } else {
+        viewRef.current.animate({ 0: { scale: 1.5 }, 1: { scale: 1 } });
+      }
+    }, [focused]);
+  }
 
   return (
     // <SafeAreaView
@@ -115,7 +129,7 @@ export default function HomeScreen() {
           paddingRight: 20,
         }}
       >
-        <Post/>
+        <Post />
       </ScrollView>
       <ImageBackground
         source={require("../assets/Footer3.png")}
@@ -131,6 +145,7 @@ export default function HomeScreen() {
         }}
       >
         <TouchableOpacity
+          onPress={() => navigation.navigate("Home")}
           style={{
             width: "40%",
             height: "100%",
@@ -150,7 +165,7 @@ export default function HomeScreen() {
             justifyContent: "center",
           }}
         >
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate("Post")}>
             <FontAwesome name="shopping-basket" size={35} color='white' />
           </TouchableOpacity>
         </View>
