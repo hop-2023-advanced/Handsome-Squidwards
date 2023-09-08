@@ -12,10 +12,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
-import { useNavigation } from '@react-navigation/native';
 
-export const Post = () => {
-  const navigation = useNavigation();
+export const Post = ({ navigation }) => {
   const [modaVisible, setModaVisible] = useState(false);
 
   const Opt = () => {
@@ -200,8 +198,8 @@ export const Post = () => {
           }}
         >
           <TouchableOpacity
-            onPress={function() { navigation.navigate("Comments") }}
-            style={{ alignItems: "center", flexDirection: "row", marginTop: 4 }}
+            onPress={() => navigation.navigate("Comments")}
+          // style={{ alignItems: "center", flexDirection: "row", marginTop: 4 }}
           >
             <FontAwesome5
               style={{ marginLeft: 14 }}
