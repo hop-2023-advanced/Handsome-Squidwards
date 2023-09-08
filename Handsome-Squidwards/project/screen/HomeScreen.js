@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { useAuth } from "@clerk/clerk-expo";
 import {
   SafeAreaView,
   View,
@@ -18,8 +17,6 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Post } from "../components/Post"
 
 export default function HomeScreen({ navigation }) {
-  const { isLoaded, signOut } = useAuth();
-
   const TabButton = (props) => {
     const { item, onPress, accessibilityState } = props;
     const focused = accessibilityState.selected;
@@ -36,23 +33,6 @@ export default function HomeScreen({ navigation }) {
   }
 
   return (
-    // <SafeAreaView
-    //   style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-    // >
-    //   {isLoaded ? (
-    //     <Button
-    //       mode="contained"
-    //       onPress={() => {
-    //         signOut();
-    //       }}
-    //       style={{ width: 150 }}
-    //     >
-    //       sign out
-    //     </Button>
-    //   ) : (
-    //     ""
-    //   )}
-    // </SafeAreaView>
     <View
       style={{
         flex: 1,
@@ -80,7 +60,7 @@ export default function HomeScreen({ navigation }) {
         <Text style={{ color: "white", fontWeight: "bold" }}>
           Good day, John Smith
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
           <MaterialCommunityIcons
             name="human-greeting-variant"
             size={24}
