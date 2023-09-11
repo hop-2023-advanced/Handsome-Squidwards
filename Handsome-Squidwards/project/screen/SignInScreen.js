@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SafeAreaView, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, Text, TouchableOpacity, View, Switch } from "react-native";
 import { useSignIn, useUser } from "@clerk/clerk-expo";
 import { Button, TextInput } from "react-native-paper";
 
@@ -8,6 +8,8 @@ export default function SignInScreen({ pressed }) {
   const [secureTextEntry, setSecureTextEntry] = useState(true);
   const [emailAddress, setEmailAddress] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [isEnabled, setIsEnabled] = useState(false);
+  const [check, setCheck] = useState("-");
 
   const SignInPress = async () => {
     if (!isLoaded) {
@@ -26,6 +28,17 @@ export default function SignInScreen({ pressed }) {
       console.log(err);
     }
   };
+
+  const StringValue = async (value) => {
+    try {
+      await AsyncStorage.setItem('key', value)
+    } catch (e) {
+      // save error
+    }
+
+    console.log('Done.')
+  }
+  
   return (
     <SafeAreaView
       style={{
@@ -88,6 +101,13 @@ export default function SignInScreen({ pressed }) {
             />
           }
         />
+
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 10, }}>
+          <TouchableOpacity onPress={StringValue} style={{ borderWidth: 2, width: 20, alignItems: "center", justifyContent: "center", }}>
+            <Text style={{ color: "white" }}>{check}</Text>
+          </TouchableOpacity>
+          <Text style={{ color: "white" }}>Remember me</Text>
+        </View>
 
         <Button
           onPress={SignInPress}

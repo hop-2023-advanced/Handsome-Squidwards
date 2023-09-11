@@ -184,14 +184,12 @@ export const Post = () => {
         </View>
         <View style={{ borderTopWidth: 0.5, borderColor: '#282828', backgroundColor: "white" }}>
           <Image
-            style={{ height: "110%", width: "100%" }}
+            style={{ height: 250, width: "100%" }}
             source={{ uri: 'https://img.ifunny.co/images/ef18d47b9768055fd990577526c09a9b2d1e965400b5ae239c4e973ab30c5cb5_1.webp' }}
           />
         </View>
         <View
           style={{
-            width: "100%",
-            height: "18%",
             backgroundColor: "#D6CCC2",
             padding: 8,
             borderWidth: 0.5,

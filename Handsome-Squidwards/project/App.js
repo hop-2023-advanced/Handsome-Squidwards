@@ -27,7 +27,7 @@ export default function App() {
         </SignedIn>
 
         <SignedOut>
-          {signed ? (
+          {/* {signed ? (
 
             <SignInScreen pressed={() => setSigned(false)} />
 
@@ -35,7 +35,8 @@ export default function App() {
 
             <SignUpScreen pressed={() => setSigned(true)} />
 
-          )}
+          )} */}
+          <MyStack />
         </SignedOut>
       </ClerkProvider>
     </PaperProvider>

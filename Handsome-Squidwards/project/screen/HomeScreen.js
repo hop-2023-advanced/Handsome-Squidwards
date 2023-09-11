@@ -110,6 +110,12 @@ export default function HomeScreen({ navigation }) {
         }}
       >
         <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        
       </ScrollView>
       <ImageBackground
         source={require("../assets/Footer3.png")}
