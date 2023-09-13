@@ -159,6 +159,7 @@ export default function HomeScreen({ navigation }) {
           </TouchableOpacity>
         </View>
         <TouchableOpacity
+          onPress={() => navigation.navigate("Addpost")}
           style={{
             position: "absolute",
             width: 100,
