@@ -40,7 +40,7 @@ export default function HomeScreen({ navigation }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        paddingTop: 90,
+        paddingTop: 80,
         alignItems: "center",
       }}
     >
@@ -48,7 +48,7 @@ export default function HomeScreen({ navigation }) {
         style={{
           width: "100%",
           backgroundColor: "#D5BDAF",
-          height: 110,
+          height: 80,
           position: "absolute",
           alignItems: "center",
           justifyContent: "space-between",
@@ -69,13 +69,13 @@ export default function HomeScreen({ navigation }) {
         </TouchableOpacity>
         <View
           style={{
-            width: 300,
+            width: "90%",
             left: "12%",
             height: 40,
             backgroundColor: "#EDEDE9",
             borderRadius: 2000,
             position: "absolute",
-            top: 90,
+            top: 60,
             shadowColor: "black",
             shadowOpacity: 0.2,
             shadowRadius: 3,
@@ -105,8 +105,9 @@ export default function HomeScreen({ navigation }) {
           backgroundColor: "#F5EBE0",
           width: "100%",
           zIndex: -1,
-          paddingLeft: 20,
-          paddingRight: 20,
+          // paddingLeft: 20,
+          // paddingRight: 20,
+          paddingTop:20,
         }}
       >
         <Post />

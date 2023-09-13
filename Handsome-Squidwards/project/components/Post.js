@@ -1,12 +1,15 @@
 import "react-native-gesture-handler";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Modal,
   Text,
   Image,
   View,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
+
+const photo = null
 
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,17 +20,36 @@ import { useNavigation } from '@react-navigation/native';
 export const Post = () => {
   const navigation = useNavigation();
   const [modaVisible, setModaVisible] = useState(false);
+  const [imageWidth, setImageWidth] = useState();
+  const [imageHeight, setImageHeight] = useState();
 
   const Opt = () => {
     setModaVisible(!modaVisible);
   };
 
+  function imageSize() {
+    if (photo === null) {
+      setImageHeight(0)
+      setImageWidth(0)
+    } else {
+      const screenWidth = Dimensions.get('window').width;
+      const screenHeight = Dimensions.get('window').height;
+      Image.getSize(photo, (width, height) => {
+        setImageWidth(screenWidth)
+        const ration = screenWidth / width
+        setImageHeight(height * ration)
+      });
+    }
+  }
+  useEffect(() => {
+    imageSize()
+  });
+
   return (
     <View
       style={{
-        marginTop: 50,
         borderWidth: 0.5,
-        borderColor: "#282828",
+        borderColor: "#D3D3D3",
         backgroundColor: "#EDEDE9",
       }}
     >
@@ -182,24 +204,41 @@ export const Post = () => {
             </View>
           </Modal>
         </View>
-        <View style={{ borderTopWidth: 0.5, borderColor: '#282828', backgroundColor: "white" }}>
+        <View style={{ margin: 10, }}>
+          <Text style={{}}>Test Text</Text>
+        </View>
+        <View style={{ borderTopWidth: 0.5, borderColor: '#282828', backgroundColor: "white", alignItems: "center", justifyContent: "center", }}>
           <Image
-            style={{ height: 250, width: "100%" }}
-            source={{ uri: 'https://img.ifunny.co/images/ef18d47b9768055fd990577526c09a9b2d1e965400b5ae239c4e973ab30c5cb5_1.webp' }}
+            style={{ height: imageHeight, width: "100%", resizeMode: 'cover' }}
+            source={{ uri: photo }}
           />
         </View>
         <View
           style={{
             backgroundColor: "#D6CCC2",
-            padding: 8,
             borderWidth: 0.5,
-            borderColor: "#282828",
+            borderColor: "#D3D3D3",
             backgroundColor: "#EDEDE9",
+            width: "100%",
+            height: 50,
+            flexDirection: "row",
           }}
         >
+          <TouchableOpacity style={{ alignItems: "center", flexDirection: "row", width: "50%", height: "100%", justifyContent: "center" }}>
+            <Text
+              style={{
+                fontSize: 14,
+                fontWeight: "600",
+                color: "black",
+                marginLeft: 6,
+              }}
+            >
+              Like
+            </Text>
+          </TouchableOpacity>
           <TouchableOpacity
-            onPress={function() { navigation.navigate("Comments") }}
-            style={{ alignItems: "center", flexDirection: "row", marginTop: 4 }}
+            onPress={function () { navigation.navigate("Comments") }}
+            style={{ alignItems: "center", flexDirection: "row", width: "50%", height: "100%", justifyContent: "center" }}
           >
             <FontAwesome5
               style={{ marginLeft: 14 }}
