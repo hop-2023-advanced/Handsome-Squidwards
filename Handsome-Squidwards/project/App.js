@@ -14,6 +14,8 @@ import SignInScreen from "./screen/SignInScreen";
 import SignUpScreen from "./screen/SignUpScreen";
 import AddPost from "./components/AddPost"
 import {SafeAreaView} from "react-native"
+import Camera from "./components/Camera"
+import Photos from "./components/Photos"
 
 export default function App() {
   CLERK_PUBLISHABLE_KEY =
@@ -59,7 +61,9 @@ function MyStack() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Password" component={Password} />
-        {/* <Stack.Screen name="Addpost" component={AddPost} />  */}
+        <Stack.Screen name="Addpost" component={AddPost} /> 
+        <Stack.Screen name="Camera" component={Camera} /> 
+        <Stack.Screen name="Photos" component={Photos} /> 
       </Stack.Navigator>
     </NavigationContainer>
   );
