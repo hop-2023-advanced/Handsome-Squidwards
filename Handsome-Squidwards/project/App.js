@@ -12,6 +12,8 @@ import { PaperProvider } from "react-native-paper";
 import { useState } from "react";
 import SignInScreen from "./screen/SignInScreen";
 import SignUpScreen from "./screen/SignUpScreen";
+import AddPost from "./components/AddPost"
+import {SafeAreaView} from "react-native"
 
 export default function App() {
   CLERK_PUBLISHABLE_KEY =
@@ -20,14 +22,15 @@ export default function App() {
   const [signed, setSigned] = useState(true);
 
   return (
-    <PaperProvider>
+    <SafeAreaView style={{flex:1}}>
+      <PaperProvider>
       <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
         <SignedIn>
           <MyStack />
         </SignedIn>
 
         <SignedOut>
-          {signed ? (
+          {/* {signed ? (
 
             <SignInScreen pressed={() => setSigned(false)} />
 
@@ -35,10 +38,12 @@ export default function App() {
 
             <SignUpScreen pressed={() => setSigned(true)} />
 
-          )}
+          )} */}
+          <MyStack />
         </SignedOut>
       </ClerkProvider>
     </PaperProvider>
+    </SafeAreaView>
   );
 }
 
@@ -54,6 +59,7 @@ function MyStack() {
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Password" component={Password} />
+        {/* <Stack.Screen name="Addpost" component={AddPost} />  */}
       </Stack.Navigator>
     </NavigationContainer>
   );
