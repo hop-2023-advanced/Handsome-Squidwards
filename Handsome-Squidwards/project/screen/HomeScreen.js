@@ -17,21 +17,13 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Post } from "../components/Post"
 import { Entypo } from '@expo/vector-icons';
 
+const baseUrl = "https://instagram-backend-delta.vercel.app/api/";
+
 export default function HomeScreen({ navigation }) {
-  const TabButton = (props) => {
-    const { item, onPress, accessibilityState } = props;
-    const focused = accessibilityState.selected;
-    useEffect(() => {
-      if (focused) {
-        viewRef.current.animate({
-          0: { scale: 1 },
-          1: { scale: 1.5 },
-        });
-      } else {
-        viewRef.current.animate({ 0: { scale: 1.5 }, 1: { scale: 1 } });
-      }
-    }, [focused]);
-  }
+
+  useEffect(() => {
+    axios
+  })
 
   return (
     <View
@@ -118,6 +110,7 @@ export default function HomeScreen({ navigation }) {
         <Post />
         <Post />
         <Post />
+        
         
       </ScrollView>
       <ImageBackground
