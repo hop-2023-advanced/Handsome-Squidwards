@@ -15,6 +15,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Post } from "../components/Post"
+import { Entypo } from '@expo/vector-icons';
 
 export default function HomeScreen({ navigation }) {
   const TabButton = (props) => {
@@ -36,12 +37,13 @@ export default function HomeScreen({ navigation }) {
     <View
       style={{
         flex: 1,
-        backgroundColor: "#F5EBE0",
+        backgroundColor: "#EDEDE9",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         paddingTop: 80,
         alignItems: "center",
+        paddingBottom: 80,
       }}
     >
       <View
@@ -153,7 +155,7 @@ export default function HomeScreen({ navigation }) {
           }}
         >
           <TouchableOpacity onPress={() => navigation.navigate("Post")}>
-            <FontAwesome name="shopping-basket" size={35} color='white' />
+          <Entypo name="open-book" size={35} color="white" />
           </TouchableOpacity>
         </View>
         <TouchableOpacity
