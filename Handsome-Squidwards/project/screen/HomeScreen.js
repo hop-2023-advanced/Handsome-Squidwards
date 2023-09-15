@@ -16,21 +16,27 @@ import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Post } from "../components/Post"
 import { Entypo } from '@expo/vector-icons';
+import axios from "axios"
+
+const baseUrl = "https://instagram-backend-l0tjbr2wf-444erdem.vercel.app/api/";
 
 export default function HomeScreen({ navigation }) {
-  const TabButton = (props) => {
-    const { item, onPress, accessibilityState } = props;
-    const focused = accessibilityState.selected;
-    useEffect(() => {
-      if (focused) {
-        viewRef.current.animate({
-          0: { scale: 1 },
-          1: { scale: 1.5 },
-        });
-      } else {
-        viewRef.current.animate({ 0: { scale: 1.5 }, 1: { scale: 1 } });
-      }
-    }, [focused]);
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+   loadPosts()
+  }, [])
+
+  function loadPosts() {
+    axios 
+    .get(baseUrl + "posts")
+    .then((res) => {
+      setData(res.data.documents);
+      console.log(res.data.documents);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
 
   return (
@@ -112,13 +118,12 @@ export default function HomeScreen({ navigation }) {
           paddingTop:20,
         }}
       >
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        
+        <View>
+        {
+          data.map((post) => {
+            return <Post post={post} onAfterDelete={loadPosts}/>;
+          })}
+        </View>
       </ScrollView>
       <ImageBackground
         source={require("../assets/Footer3.png")}

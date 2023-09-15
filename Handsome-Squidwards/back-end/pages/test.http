@@ -11,7 +11,9 @@ POST http://localhost:3000/api/users
 content-type: application/json
 
 {
-    "username": "erdemee"
+    "username": "tuvshu",
+    "image": "https://i.pinimg.com/564x/67/6a/de/676ade8ac579f6da256502a71717186f.jpg"
+  
 }
 
 
@@ -41,8 +43,9 @@ POST http://localhost:3000/api/posts
 content-type: application/json
 
 {
-    "text": "a",
-    "userId": "64f03b19442d170e283f8875"
+    "text": "HELLO WORLD!!!!!",
+    "image": "https://i.pinimg.com/564x/67/ba/52/67ba52e8b34ddd84503eeeb93c14f91f.jpg",
+    "userId": "65043b8b405168d1f12c03f2"
 }
 
 

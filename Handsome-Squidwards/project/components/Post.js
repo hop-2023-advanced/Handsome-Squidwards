@@ -8,8 +8,13 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
+import dayjs from 'dayjs'
+import axios from "axios"
 
-const photo = null
+import relativeTime from 'dayjs/plugin/relativeTime'
+dayjs.extend(relativeTime)
+
+const baseUrl = "https://instagram-backend-l0tjbr2wf-444erdem.vercel.app/api/";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -17,7 +22,7 @@ import { Feather } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from '@react-navigation/native';
 
-export const Post = () => {
+export const Post = ({post, onAfterDelete}) => {
   const navigation = useNavigation();
   const [modaVisible, setModaVisible] = useState(false);
   const [imageWidth, setImageWidth] = useState();
@@ -28,13 +33,13 @@ export const Post = () => {
   };
 
   function imageSize() {
-    if (photo === null) {
+    if (post.image === null) {
       setImageHeight(0)
       setImageWidth(0)
     } else {
       const screenWidth = Dimensions.get('window').width;
       const screenHeight = Dimensions.get('window').height;
-      Image.getSize(photo, (width, height) => {
+      Image.getSize(post.image, (width, height) => {
         setImageWidth(screenWidth)
         const ration = screenWidth / width
         setImageHeight(height * ration)
@@ -44,6 +49,19 @@ export const Post = () => {
   useEffect(() => {
     imageSize()
   });
+  const deletePost = () => {
+    axios
+      .delete(baseUrl + "posts/" +  post._id)
+      .then((res) => {
+        console.log("Deleted", res.data);
+        setModaVisible(false)
+         onAfterDelete()
+        alert("Deleted!")
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <View
@@ -80,12 +98,15 @@ export const Post = () => {
                 borderWidth: 0.5,
               }}
               source={{
-                uri: "https://c4.wallpaperflare.com/wallpaper/469/411/650/ryan-gosling-blade-runner-2049-depressing-movie-scenes-hd-wallpaper-preview.jpg",
+                uri: post.userImage
               }}
             />
             <View>
               <Text style={{ fontSize: 14, fontWeight: "600", color: "black" }}>
-                ryan_gosling
+                {post.username}
+              </Text>
+              <Text style={{ fontSize: 14, color: "gray" }}>
+                {dayjs(post.uploadTime).fromNow()}
               </Text>
             </View>
           </View>
@@ -186,7 +207,9 @@ export const Post = () => {
                     padding: 20,
                     flexDirection: "row",
                     alignItems: "center",
+                   
                   }}
+                  onPress={(any) => deletePost()}
                 >
                   <MaterialIcons name="delete-outline" size={28} color="red" />
                   <Text
@@ -205,12 +228,12 @@ export const Post = () => {
           </Modal>
         </View>
         <View style={{ margin: 10, }}>
-          <Text style={{}}>Test Text</Text>
+          <Text>{post.text}</Text>
         </View>
         <View style={{ borderTopWidth: 0.5, borderColor: '#282828', backgroundColor: "white", alignItems: "center", justifyContent: "center", }}>
           <Image
             style={{ height: imageHeight, width: "100%", resizeMode: 'cover' }}
-            source={{ uri: photo }}
+            source={{ uri: post.image }}
           />
         </View>
         <View

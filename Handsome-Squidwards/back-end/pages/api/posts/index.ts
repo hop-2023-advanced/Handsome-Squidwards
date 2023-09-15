@@ -13,13 +13,19 @@ export default async function handler(
       res.status(200).json(list);
       break;
     case "POST":
-      const { text, image, username, userId } = req.body;
+      const { text, image, userId } = req.body;
 
       console.log(req.body);
 
+      const user: any = await db("users", "findOne", {
+        filter: { _id: { $oid: userId } },
+      });
+      console.log(user);
+
       const create = await db("posts", "insertOne", {
         document: {
-          username: username,
+          userImage: user.document.image,
+          username: user.document.username,
           text: text,
           image: image,
           uploadTime: Date.now(),
