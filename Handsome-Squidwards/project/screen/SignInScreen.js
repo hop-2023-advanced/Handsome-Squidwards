@@ -10,6 +10,11 @@ export default function SignInScreen({ pressed }) {
   const [password, setPassword] = React.useState("");
   const [isEnabled, setIsEnabled] = useState(false);
   const [check, setCheck] = useState("-");
+  const [Test, setTest] = useState();
+  const value = {
+    name: "Chimezie",
+    job: "Software Developer"
+  };
 
   const SignInPress = async () => {
     if (!isLoaded) {
@@ -29,15 +34,25 @@ export default function SignInScreen({ pressed }) {
     }
   };
 
-  const StringValue = async (value) => {
+  const StringValue = async () => {
     try {
-      await AsyncStorage.setItem('key', value)
+      await AsyncStorage.setItem("user", JSON.stringify(value));
     } catch (e) {
       // save error
     }
 
-    console.log('Done.')
+    console.log(value)
   }
+
+  const getUser = async () => {
+    try {
+      const savedUser = await AsyncStorage.getItem("user");
+      const currentUser = JSON.parse(savedUser);
+      console.log(currentUser);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   
   return (
     <SafeAreaView
@@ -107,6 +122,13 @@ export default function SignInScreen({ pressed }) {
             <Text style={{ color: "white" }}>{check}</Text>
           </TouchableOpacity>
           <Text style={{ color: "white" }}>Remember me</Text>
+        </View>
+
+        <View style={{ flexDirection: "row", alignItems: "center", gap: 10, }}>
+          <TouchableOpacity onPress={getUser} style={{ borderWidth: 2, width: 20, alignItems: "center", justifyContent: "center", }}>
+            <Text style={{ color: "white" }}>{check}</Text>
+          </TouchableOpacity>
+          <Text style={{ color: "white" }}>Test</Text>
         </View>
 
         <Button

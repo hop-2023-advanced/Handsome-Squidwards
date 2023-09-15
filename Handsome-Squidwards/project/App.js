@@ -21,8 +21,6 @@ export default function App() {
   CLERK_PUBLISHABLE_KEY =
     "pk_test_cmFwaWQtb3JjYS0zNi5jbGVyay5hY2NvdW50cy5kZXYk";
 
-  const [signed, setSigned] = useState(true);
-
   return (
     <SafeAreaView style={{flex:1}}>
       <PaperProvider>
@@ -30,19 +28,8 @@ export default function App() {
         <SignedIn>
           <MyStack />
         </SignedIn>
-
-        <SignedOut>
-          {/* {signed ? (
-
-            <SignInScreen pressed={() => setSigned(false)} />
-
-          ) : (
-
-            <SignUpScreen pressed={() => setSigned(true)} />
-
-          )} */}
-          <MyStack />
-        </SignedOut>
+        {/* <CheckLogIn/> */}
+        <MyStack/>
       </ClerkProvider>
     </PaperProvider>
     </SafeAreaView>
@@ -66,5 +53,23 @@ function MyStack() {
         <Stack.Screen name="Photos" component={Photos} /> 
       </Stack.Navigator>
     </NavigationContainer>
+  );
+}
+
+function CheckLogIn() {
+  const [signed, setSigned] = useState(true);
+  return(
+    <SignedOut>
+          {signed ? (
+
+            <SignInScreen pressed={() => setSigned(false)} />
+
+          ) : (
+
+            <SignUpScreen pressed={() => setSigned(true)} />
+
+          )}
+          {/* <MyStack /> */}
+        </SignedOut>
   );
 }
