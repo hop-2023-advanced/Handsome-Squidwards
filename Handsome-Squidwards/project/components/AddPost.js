@@ -1,11 +1,49 @@
 import "react-native-gesture-handler";
-import React, { useState } from "react";
-import { Text, Image, View, TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from "react";
+import { Text, Image, View, TouchableOpacity, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import axios from "axios";
 
 export default function Profile({ navigation }) {
+  const [text, setText] = useState("");
   const [modaVisible, setModaVisible] = useState(false);
+
+  const baseUrl = "https://instagram-backend-delta.vercel.app/api/";
+
+  function CreatePost() {
+    axios
+      .post(baseUrl + "posts", {
+        text: text,
+        image: null,
+        uploadTime: Date.now(),
+        userId: "65043b8b405168d1f12c03f2"
+      })
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+  // useEffect(() => {
+  //   // axios
+  //   //   .get("http://localhost:1111/url?userId=63ee0aceff6339af312db2ef")
+  //   //   .then((res) => console.log(res))
+  //   //   .catch((err) => {
+  //   //     console.log(err);
+  //   //   });
+
+  //   axios
+  //     .get(baseUrl + "url?userId=" + id)
+  //     .then((res) => {
+  //       setData(res.data);
+  //       console.log(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <View style={{ flex: 1, backgroundColor: "black", paddingBottom: 50 }}>
@@ -24,11 +62,27 @@ export default function Profile({ navigation }) {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Text>Go Back</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={CreatePost}>
           <Text>Post</Text>
         </TouchableOpacity>
       </View>
-      <View style={{}}></View>
+      <View style={{}}>
+        <TextInput
+          style={{
+            color: "white",
+            paddingHorizontal: 16,
+            width: 280,
+            height: 42,
+            borderColor: "#464646",
+            borderWidth: 1,
+            borderRadius: 50,
+          }}
+          placeholder="Comment on this post"
+          placeholderTextColor="grey"
+          onChangeText={(e) => setText(e)}
+          value={text}
+        />
+      </View>
       <View
         style={{
           backgroundColor: "gray",
